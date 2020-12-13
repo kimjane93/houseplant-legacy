@@ -1,0 +1,26 @@
+<%- include('../partials/header') %> 
+    <h1>Hey <%= user.name %>!</h1>
+    <h3>Take A Look At The Plants You Can Currently Collect Through The Plant Shop, Or By Taking Clippings From Generous Freinds!</h3>
+    
+    <% houseplants.forEach((p)=>{ %>
+
+        <div class="card" style="width: 18rem;">
+            <img src="<%= p.imageUrl %>" class="card-img-top" alt="plant-image">
+            <div class="card-body">
+                <h5 class="card-title"><%= p.name %></h5>
+                <p class="card-text"><%= p.description %></p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+            <div class="card-body">
+                <a href="#" class="card-link">Check The Plant Shop!</a>
+                <a href="#" class="card-link">See Who Owns It and Has A Clipping!</a>
+            </div>
+        </div>
+    <% }) %> 
+        
+</ul>
+<%- include('../partials/footer') %> 

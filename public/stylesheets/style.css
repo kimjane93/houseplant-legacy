@@ -4,6 +4,8 @@ body {
   margin: 0;
 }
 
-nav {
-  background-color: white;
+#nav-bar{
+  background-color: chartreuse;
+  color: rgb(6, 72, 6);
+  border-color: rgb(6, 72, 6);
 }

@@ -10,7 +10,6 @@ const shareSchema = new Schema ({
 
 const houseplantSchema = new Schema({
     name: {type: String, required: true},
-    price: {type: Number, min: 1, max: 100, default: 25},
     description: String,
     imageUrl: String,
     Ownedby: [{type: Schema.Types.ObjectId, ref: "User"}],
