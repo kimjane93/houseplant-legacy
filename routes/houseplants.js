@@ -2,6 +2,7 @@ const router = require('express').Router()
 const houseplantsCtrl = require('../controllers/houseplants')
 
 router.get('/', isLoggedIn, houseplantsCtrl.index)
+router.get('/new', isLoggedIn, houseplantsCtrl.new)
 
 
 function isLoggedIn(req, res, next) {
