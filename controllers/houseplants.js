@@ -3,7 +3,8 @@ const Houseplant = require('../models/houseplant')
 
 module.exports = {
     index,
-    new: newHouseplant
+    new: newHouseplant,
+    create,
 }
 
 function index(req, res){
@@ -15,4 +16,14 @@ function index(req, res){
 
 function newHouseplant(req, res){
     res.render('houseplants/new', {title: 'Add Houseplant To Rotation', user: req.user})
+}
+
+function create(req, res){
+    Houseplant.create(req.body)
+    .then(()=>{
+        res.redirect('/houseplants/new')
+    })
+    .catch((error)=>{
+        console.log(error)
+    })
 }

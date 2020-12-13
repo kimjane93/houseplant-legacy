@@ -1,5 +1,15 @@
 <%- include('../partials/header') %> 
+<table>
+    <thead>Add Plant To Database</thead>
+    <tr>
+        <form action="/houseplants/new" method="POST">
+            <input type="text" placeholder="Scientific Name" name="name">
+            <input type="text" placeholder="Description" name="description">
+            <input type="text" placeholder="Image Url" name="imageUrl">
+            <button type="submit">Add Houseplant</button>
+        </form>
+    </tr>
+</table>
 
-<h1>New Form</h1>
 
 <%- include('../partials/footer') %> 

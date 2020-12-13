@@ -23,5 +23,8 @@
       <% } else { %>
         <a href="/auth/google">Login with Google</a>
       <% } %></li>
+    <% if(user && user.email === 'kjchadwell93@gmail.com'){ %>
+          <li><a href="/houseplants/new">Add Plant To Database</a></li>
+    <% } %> 
   </ul>
 </div>

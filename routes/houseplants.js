@@ -3,6 +3,7 @@ const houseplantsCtrl = require('../controllers/houseplants')
 
 router.get('/', isLoggedIn, houseplantsCtrl.index)
 router.get('/new', isLoggedIn, isAdmin, houseplantsCtrl.new)
+router.post('/new', isLoggedIn, isAdmin, houseplantsCtrl.create)
 
 
 function isLoggedIn(req, res, next) {
@@ -11,7 +12,7 @@ function isLoggedIn(req, res, next) {
   }
   
 function isAdmin(req, res, next){
-    if(req.user.name === "Kimberly Chadwell") return next()
+    if(req.user.email === "kjchadwell93@gmail.com") return next()
     res.redirect('/houseplants')
 }
 

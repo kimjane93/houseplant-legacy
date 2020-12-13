@@ -9,7 +9,7 @@ const shareSchema = new Schema ({
 })
 
 const houseplantSchema = new Schema({
-    name: {type: String, required: true},
+    name: String,
     description: String,
     imageUrl: String,
     Ownedby: [{type: Schema.Types.ObjectId, ref: "User"}],
