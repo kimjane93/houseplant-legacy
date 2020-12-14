@@ -4,6 +4,7 @@ const usersCtrl = require('../controllers/users')
 router.get('/profile', isLoggedIn, usersCtrl.myProfile)
 router.get('/index', isLoggedIn, usersCtrl.index)
 router.put('/profile', isLoggedIn, usersCtrl.addBio)
+router.get('/profile/personalcollection', isLoggedIn, usersCtrl.myPlants)
 
 
 
