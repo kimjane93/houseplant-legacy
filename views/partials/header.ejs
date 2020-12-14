@@ -15,10 +15,10 @@
   </button>
   <ul class="dropdown-menu">
     <li><a class="dropdown-item" href="/houseplants">Plants In Rotation</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
     <li><a class="dropdown-item" href="#">Something else here</a></li>
-    <li><hr class="dropdown-divider"></li>
     <li><% if (user) { %>
+    <li><a class="dropdown-item" href='/users/profile'>My Profile</a></li>
+    <li><hr class="dropdown-divider"></li>
         <a href="/auth/logout">Log Out</a>
       <% } else { %>
         <a href="/auth/google">Login with Google</a>
