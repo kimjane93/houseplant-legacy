@@ -6,14 +6,14 @@
             <h5 class="card-title"><%= user.name %></h5>
             <h5 class="card-title">Bio:</h5>
             <% if(!user.bio){ %>
-                <form action="/users/profile" method="POST">
-                <input type="text" placeholder="Tell Us About Yourself!">
+                <form action="/users/profile?_method=PUT" method="POST">
+                <input type="text" placeholder="Tell Us About Yourself!" name="bio">
                 <button type="submit">Add Your Bio</button>
                 </form>
             <% } else{ %>
                 <p class="card-text"><%= user.bio %></p>
-                <form action="/users/profile" method="post">
-                    <input type="text" placeholder="Update Your Story!">
+                <form action="/users/profile?_method=PUT" method="POST">
+                    <input type="text" placeholder="Update Your Story!" name="bio">
                     <button type="submit">Update Your Bio</button>
                 </form>
             <% } %> 

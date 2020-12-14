@@ -2,7 +2,8 @@ const User = require('../models/user')
 
 module.exports = {
     myProfile,
-    index, 
+    index,
+    addBio,
 }
 
 function myProfile(req, res){
@@ -20,5 +21,13 @@ function index(req, res){
     User.find({})
     .then((users)=>{
         res.render('users/index', {title: 'Other Plant Pals!', users: users, user: req.user})
+    })
+}
+
+
+function addBio(req, res){
+    User.findByIdAndUpdate(req.user._id, req.body, {new: true})
+    .then(()=>{
+        res.redirect('/users/profile')
     })
 }
