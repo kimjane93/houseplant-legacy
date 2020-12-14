@@ -1,0 +1,19 @@
+<%- include('../partials/header') %> 
+
+
+<% users.forEach((u)=>{ %>
+
+    <div class="card" style="width: 18rem;">
+        <img src="<%= u.avatar %>" class="card-img-top" alt="plant-image">
+        <div class="card-body">
+            <h5 class="card-title"><%= u.name %></h5>
+            <p class="card-text"><%= u.bio %></p>
+        </div>
+        <div class="card-body">
+            <a href="#" class="card-link">Check Out Their Indoor Garden!</a>
+        </div>
+    </div>
+<% }) %> 
+
+
+<%- include('../partials/footer') %> 
