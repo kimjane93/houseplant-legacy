@@ -1,4 +1,34 @@
 <%- include('../partials/header') %> 
 
-<h1>HI</h1>
+<h1>This is my personal plant collection</h1>
+
+<% user.plantCollection.forEach((p)=>{ %>
+
+    <div class="card" style="width: 18rem;">
+        <img src="<%= p.imageUrl %>" class="card-img-top" alt="plant-image">
+        <div class="card-body">
+            <h5 class="card-title"><%= p.name %></h5>
+            <p class="card-text"><%= p.description %></p>
+        </div>
+        <div class="card-body">
+            <% if(p.shareable === false){ %> 
+            <form action="/users/profile/personalcollection?_method=PUT" method="POST">
+                <input type="checkbox" hidden name="<%= shareable %>" value="checked">
+                <button type="submit">Allow Plant Pals To Take A Clipping!
+                </button>
+            </form>
+            <% } else{ %>
+                <form action="/users/profile/personalcollection?_method=PUT" method="POST">
+                    <input type="checkbox" hidden name="<%= shareable %>" value="unchecked">
+                    <button type="submit">Paws Off! No Clippings Here!
+                    </button>
+            <% } %>
+            <form action="/users/profile/personalcollection?_method=DELETE" method="POST">
+                <button type="submit">Remove From Collection</button>
+            </form>
+        </div>
+    </div>
+<% }) %> 
+
+
 <%- include('../partials/footer') %> 

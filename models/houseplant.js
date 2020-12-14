@@ -1,19 +1,12 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-
-const shareSchema = new Schema ({
-    share: {type: Boolean, required: true}
-},{
-    timestamps: true
-})
-
 const houseplantSchema = new Schema({
     name: String,
     description: String,
     imageUrl: String,
     Ownedby: [{type: Schema.Types.ObjectId, ref: "User"}],
-    shareable: [shareSchema]
+    shareable: {type: Boolean, default: false}
 },{
     timestamps: true
 })
