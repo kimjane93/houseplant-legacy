@@ -4,6 +4,7 @@ const houseplantsCtrl = require('../controllers/houseplants')
 router.get('/', isLoggedIn, houseplantsCtrl.index)
 router.get('/new', isLoggedIn, isAdmin, houseplantsCtrl.new)
 router.post('/new', isLoggedIn, isAdmin, houseplantsCtrl.create)
+router.get('/plantshop', isLoggedIn, houseplantsCtrl.goToStore)
 
 
 function isLoggedIn(req, res, next) {

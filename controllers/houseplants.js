@@ -5,6 +5,7 @@ module.exports = {
     index,
     new: newHouseplant,
     create,
+    goToStore,
 }
 
 function index(req, res){
@@ -25,5 +26,12 @@ function create(req, res){
     })
     .catch((error)=>{
         console.log(error)
+    })
+}
+
+function goToStore(req, res){
+    Houseplant.find({})
+    .then((houseplants)=>{
+        res.render('houseplants/plantshop', {title: 'Welcome To The Plant Shop', user: req.user, houseplants: houseplants})
     })
 }
