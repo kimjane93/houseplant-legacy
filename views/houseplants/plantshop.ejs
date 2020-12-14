@@ -3,4 +3,21 @@
 <h1>this is the plantshop</h1>
 
 
+
+<div class="card" style="width: 18rem;">
+    <img src="<%= houseplant.imageUrl %>" class="card-img-top" alt="plant-image">
+    <div class="card-body">
+        <h5 class="card-title"><%= houseplant.name %></h5>
+        <p class="card-text"><%= houseplant.description %></p>
+    </div>
+    <div class="card-body">
+        <form action="/houseplants/plantshop" method="POST">
+            <button type="submit">Bring Home This Plant!</button>
+            </form>
+    </div>
+</div>
+
+
+
+
 <%- include('../partials/footer') %>

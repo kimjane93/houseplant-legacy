@@ -32,6 +32,7 @@ function create(req, res){
 function goToStore(req, res){
     Houseplant.find({})
     .then((houseplants)=>{
-        res.render('houseplants/plantshop', {title: 'Welcome To The Plant Shop', user: req.user, houseplants: houseplants})
+        let randomNum = Math.floor(Math.random() * houseplants.length)
+        res.render('houseplants/plantshop', {title: 'Welcome To The Plant Shop', user: req.user, houseplant: houseplants[randomNum]})
     })
 }
