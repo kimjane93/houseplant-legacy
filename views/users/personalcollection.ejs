@@ -16,7 +16,7 @@
            
             <% if(p.shareable === false){ %> 
                 <form action="/users/profile/personalcollection?_method=PUT" method="POST">
-                    <input type="checkbox" hidden name="<%= shareable %>" value="checked">
+                    <input type="checkbox" hidden name="shareable" value="checked">
                     <button type="submit">Allow Plant Pals To Take A Clipping!
                     </button>
                 </form>
