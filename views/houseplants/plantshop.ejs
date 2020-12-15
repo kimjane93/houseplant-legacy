@@ -11,13 +11,13 @@
         <p class="card-text"><%= houseplant.description %></p>
     </div>
     <div class="card-body">
-        <form action="/houseplants/plantshop" method="POST">
+        <form action="/users/profile/personalcollection?_method=PUT" method="POST">
+            <p><%= houseplant._id %> </p>
+            <input hidden name="plantCollection" value="<%=houseplant._id%>">
+
             <button type="submit">Bring Home This Plant!</button>
             </form>
     </div>
 </div>
-
-
-
 
 <%- include('../partials/footer') %>

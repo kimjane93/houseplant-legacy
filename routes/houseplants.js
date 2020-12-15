@@ -7,6 +7,7 @@ router.post('/new', isLoggedIn, isAdmin, houseplantsCtrl.create)
 router.get('/plantshop', isLoggedIn, houseplantsCtrl.goToStore)
 
 
+
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) return next();
     res.redirect("/auth/google");

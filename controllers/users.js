@@ -1,15 +1,16 @@
 const User = require('../models/user')
+const Houseplant = require('../models/houseplant')
 
 module.exports = {
     myProfile,
     index,
     addBio,
     myPlants,
+    addPlantToCollection,
 }
 
 function myProfile(req, res){
     User.findById(req.user._id)
-    .populate("plantCollection")
     .then((user)=>{
         res.render('users/profile', {title: 'My Profile', user: user})
     })
@@ -33,10 +34,19 @@ function addBio(req, res){
     })
 }
 
+function addPlantToCollection(req, res){
+    User.findById(req.user._id, function(error, user){
+        console.log(req.body.plantCollection)
+        user.plantCollection.push(req.body.plantCollection)
+        user.save(function(){res.redirect('/users/profile')})
+    })
+}
+
+
 function myPlants(req, res){
     User.findById(req.user._id)
-    .populate('plantCollection')
+    .populate("plantCollection")
     .then((user)=>{
-        res.render('users/personalcollection', {title: 'My Plant Collection', user: req.user})
+        res.render('users/personalcollection', {title: 'My Plant Collection', user})
     })
 }

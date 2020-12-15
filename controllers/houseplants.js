@@ -1,4 +1,5 @@
 const Houseplant = require('../models/houseplant')
+const User = require('../models/user')
 
 
 module.exports = {
@@ -33,6 +34,7 @@ function goToStore(req, res){
     Houseplant.find({})
     .then((houseplants)=>{
         let randomNum = Math.floor(Math.random() * houseplants.length)
+        console.log(houseplants[randomNum])
         res.render('houseplants/plantshop', {title: 'Welcome To The Plant Shop', user: req.user, houseplant: houseplants[randomNum]})
     })
 }
