@@ -1,5 +1,10 @@
 <%- include('../partials/header') %> 
-
+<form action="/users/<%= user._id %>" method="GET">
+    <button type="submit">Return To <%= user.name %>'s Profile</button>
+ </form>
+<% if(user.plantCollection == 0){ %>
+    <h5><%= user.name %> Has A Serious Lack Of Green In Their Life!</h5>
+<% } else { %>
 <% user.plantCollection.forEach((p)=>{ %>
     <div class="card" style="width: 18rem;">
         <img src="<%= p.imageUrl %>" class="card-img-top" alt="plant-image">
@@ -10,14 +15,18 @@
         <% p.userDetails.forEach((d)=>{ %>
             <% if(d.owner == user._id) { %>
                 <% if(d.shareable) { %>
-                    <h5>You Can Take A Clipping!</h5>
+                    <form action="/users/profile/personalcollection" method="POST">
+                        <input type="text" hidden name="plantCollection" value="<%= p._id %>">
+                        <button type="submit">Take A Clipping For Your Collection!</button> 
+                    </form>
               <% } else { %>
-                    <h5>You Cannot Take A Clipping</h5>
+                    <h5>The Owner Does Not Allow Clippings Of Their <%= p.name %></h5>
              <% } %> 
           <%  } %> 
       <%  }) %> 
     </div>
 <% }) %> 
+<% } %>
 
 
 <%- include('../partials/footer') %> 

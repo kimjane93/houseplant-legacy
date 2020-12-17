@@ -11,6 +11,7 @@ router.get('/profile/personalcollection/:id/edit', isLoggedIn, usersCtrl.edit)
 router.put('/profile/personalcollection/:id/', isLoggedIn, usersCtrl.update)
 router.get('/:id', isLoggedIn, usersCtrl.show)
 router.get('/:id/usercollection', isLoggedIn, usersCtrl.theirPlants)
+router.delete('/profile/personalcollection', isLoggedIn, usersCtrl.delete)
 
 
 

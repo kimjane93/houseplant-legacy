@@ -30,6 +30,7 @@ function create(req, res){
 
 function goToStore(req, res){
     Houseplant.find({})
+    .populate('Ownedby')
     .then((houseplants)=>{
         let randomNum = Math.floor(Math.random() * houseplants.length)
         console.log(houseplants[randomNum])
@@ -37,10 +38,4 @@ function goToStore(req, res){
     })
 }
 
-// function show(req, res){
-//     Houseplant.findById(req.params.id)
-//     .then((houseplant)=>{
-//         res.render('houseplants/show', {title: `Facts about ${houseplant.name}`, houseplant, user: req.user})
-//     })
-// }
 

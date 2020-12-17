@@ -1,8 +1,15 @@
 <%- include('../partials/header') %> 
 
 <h1><%= title %> </h1>
-
-
+<form action="/users/profile" method="GET">
+    <button type="submit">Return To Your Profile</button>
+</form>
+<% if(user.plantCollection == 0){ %>
+    <h5>You Have A Serious Lack Of Green In Your Life!</h5>
+    <form action="/houseplants/plantshop" method="GET">
+        <button type="submit">Head To The Plant Shop!</button>
+    </form>
+<% } else { %>
 <% user.plantCollection.forEach((p)=>{ %>
     <div class="card" style="width: 18rem;">
         <img src="<%= p.imageUrl %>" class="card-img-top" alt="plant-image">
@@ -12,8 +19,18 @@
       <form action="/users/profile/personalcollection/<%= p._id %>" method="GET">
         <button type="submit">Plant Details</button>
     </form>
+    <form action="/users/profile/personalcollection?_method=DELETE" method="POST">
+        <input type="text" hidden name="plantid" value="<%= p._id %>">
+        <% p.userDetails.forEach((d)=>{ %>
+            <% if(d.owner == user._id){ %>
+                <input type="text" hidden name="owner" value="<%= d.owner %>">
+            <% } %> 
+      <%  }) %> 
+        <button type="submit">Return <%= p.name %> To The Shop</button>
+    </form>
     </div>
 <% }) %> 
+<% }%> 
 
 
 <%- include('../partials/footer') %> 

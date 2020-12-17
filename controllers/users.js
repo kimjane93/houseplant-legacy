@@ -1,5 +1,6 @@
 const User = require('../models/user')
 const Houseplant = require('../models/houseplant')
+const houseplant = require('../models/houseplant')
 
 module.exports = {
     myProfile,
@@ -12,6 +13,7 @@ module.exports = {
     plantdetail,
     edit,
     update,
+    delete: deletePlant,
 }
 
 function myProfile(req, res){
@@ -41,6 +43,9 @@ function addBio(req, res){
 
 function addPlantToCollection(req, res){
     User.findById(req.user._id, function(error, user){
+        if(user.plantCollection.includes(req.body.plantCollection)){
+            res.redirect('/users/profile/personalcollection')
+        } else {
         Houseplant.findById(req.body.plantCollection)
         .then((houseplant)=>{
             houseplant.userDetails.push({
@@ -52,6 +57,7 @@ function addPlantToCollection(req, res){
         })
         user.plantCollection.push(req.body.plantCollection)
         user.save(function(){res.redirect('/users/profile/personalcollection')})
+    }
     })
 }
 
@@ -103,5 +109,23 @@ function update(req, res){
         })
         houseplant.save()
         res.redirect(`/users/profile/personalcollection/${houseplant._id}`)
+    })
+}
+
+function deletePlant(req, res){
+    User.findById(req.user._id)
+    .then((user)=>{
+        let idx = user.plantCollection.indexOf(req.body.plantid)
+        user.plantCollection.splice(idx, 1)
+        user.save()
+        Houseplant.findById(req.body.plantid)
+        .then((houseplant)=>{
+            let idx = houseplant.Ownedby.indexOf(req.user._id)
+            houseplant.Ownedby.splice(idx, 1)
+            let detailIdx = houseplant.userDetails.indexOf(houseplant.userDetails.owner == req.body.owner)
+            houseplant.userDetails.splice(detailIdx, 1)
+            houseplant.save()
+        })
+        res.redirect('/users/profile/personalcollection')
     })
 }

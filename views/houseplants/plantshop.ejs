@@ -13,6 +13,17 @@
             <input hidden name="plantCollection" value="<%=houseplant._id%>">
             <button type="submit">Bring Home This Plant!</button>
             </form>
+            <% if(houseplant.Ownedby.length == 0){ %>
+                <h5>No One Owns This Plant Yet!</h5>
+            <% } else { %>   
+            <h5>Plant Pals Who Own <%= houseplant.name %>:</h5>
+        <ul>
+            <% houseplant.Ownedby.forEach((o)=>{ %>
+            <li>
+                <%= o.name %> 
+            </li>
+      <%  }) %> </ul>
+         <% } %>   
     </div>
 </div>
 
