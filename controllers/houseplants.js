@@ -43,3 +43,4 @@ function goToStore(req, res){
 //         res.render('houseplants/show', {title: `Facts about ${houseplant.name}`, houseplant, user: req.user})
 //     })
 // }
+

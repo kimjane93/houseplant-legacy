@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+
+<h1><%= title %> </h1>
+
+<p><%= houseplant.imageUrl %></p>
+<p><%= houseplant.description %></p>
+<p><% houseplant.userDetails.forEach((d)=>{ %>
+    <% if(d.owner == user._id) { %>
+        <% if(d.shareable) { %>
+            <h5>Plant Pals Can Take A Clipping</h5>
+      <% } else { %>
+            <h5>Plant Pals Cannot Take A Clipping</h5>
+     <% } %> 
+     <form action="/users/profile/personalcollection/<%= houseplant._id %>/edit" method="GET">
+        <button type="submit">Change Shareability</button>
+    </form>
+  <%  } %> 
+<%  }) %> </p>
+
+<%- include('../partials/footer') %>

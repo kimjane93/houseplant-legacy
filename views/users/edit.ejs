@@ -1,0 +1,21 @@
+<%- include('../partials/header') %> 
+
+<h1><%= title %> </h1>
+
+<form action="/users/profile/personalcollection/<%= houseplant._id %>?_method=PUT" method="POST">
+    <p><% houseplant.userDetails.forEach((d)=>{ %>
+        <% if(d.owner == user._id) { %>
+            <% if(d.shareable) { %>
+               <p>You Are Sharing This Plant With Friends<input type="checkbox" name="shareable" checked> </p>
+               <button type="submit">Disallow Sharing</button>
+          <% } else { %>
+                <p>You Are Not Sharing This Plant With Friends<input type="checkbox" name="shareable"></p>
+                <button type="submit">Allow Sharing</button>
+         <% } %> 
+      <%  } %> 
+    <%  }) %> </p>
+</form>
+
+
+
+<%- include('../partials/footer') %> 

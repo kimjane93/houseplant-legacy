@@ -8,11 +8,10 @@
         <img src="<%= p.imageUrl %>" class="card-img-top" alt="plant-image">
         <div class="card-body">
             <h5 class="card-title"><%= p.name %></h5>
-            <p class="card-text"><%= p.description %></p>
         </div>
-        <form action="/houseplants/<%= p._id %>" method="GET">
-            <button type="submit">Plant Details</button>
-        </form>
+      <form action="/users/profile/personalcollection/<%= p._id %>" method="GET">
+        <button type="submit">Plant Details</button>
+    </form>
     </div>
 <% }) %> 
 

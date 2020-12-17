@@ -9,6 +9,9 @@ module.exports = {
     addPlantToCollection,
     show,
     theirPlants,
+    plantdetail,
+    edit,
+    update,
 }
 
 function myProfile(req, res){
@@ -72,5 +75,33 @@ function theirPlants(req, res){
     .populate('plantCollection')
     .then((user)=>{
         res.render('users/usercollection', {title: `${user.name}'s Houseplant Collection`, user})
+    })
+}
+
+
+function plantdetail(req, res){
+    Houseplant.findById(req.params.id)
+    .then((houseplant)=>{
+        res.render('users/plantdetail', {title: `${houseplant.name}'s Details Page`, houseplant, user: req.user})
+    })
+  }
+
+function edit(req, res){
+    Houseplant.findById(req.params.id)
+    .then((houseplant)=>{
+        res.render('users/edit', {title: `Change Shareability Of Your ${houseplant.name}`, houseplant, user: req.user})
+    })
+}
+
+function update(req, res){
+    Houseplant.findById(req.params.id)
+    .then((houseplant)=>{
+        houseplant.userDetails.forEach((d)=>{
+            if(d.owner == req.user._id){
+                d.shareable = !!req.body.shareable
+            }
+        })
+        houseplant.save()
+        res.redirect(`/users/profile/personalcollection/${houseplant._id}`)
     })
 }
