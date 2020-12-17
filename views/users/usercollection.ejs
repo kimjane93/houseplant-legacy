@@ -5,11 +5,17 @@
         <img src="<%= p.imageUrl %>" class="card-img-top" alt="plant-image">
         <div class="card-body">
             <h5 class="card-title"><%= p.name %></h5>
-            <p class="card-text"><%= p.description %></p>
-            <form action="/houseplants/<%= p._id %>" method="GET">
-                <button type="submit">Plant Details</button>
-            </form>
+            <p class="card-text"> <%= p.description %></p>
         </div>
+        <% p.userDetails.forEach((d)=>{ %>
+            <% if(d.owner == user._id) { %>
+                <% if(d.shareable) { %>
+                    <h5>You Can Take A Clipping!</h5>
+              <% } else { %>
+                    <h5>You Cannot Take A Clipping</h5>
+             <% } %> 
+          <%  } %> 
+      <%  }) %> 
     </div>
 <% }) %> 
 

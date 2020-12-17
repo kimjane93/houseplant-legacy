@@ -5,7 +5,6 @@ router.get('/', isLoggedIn, houseplantsCtrl.index)
 router.get('/new', isLoggedIn, isAdmin, houseplantsCtrl.new)
 router.post('/new', isLoggedIn, isAdmin, houseplantsCtrl.create)
 router.get('/plantshop', isLoggedIn, houseplantsCtrl.goToStore)
-router.get('/:id', isLoggedIn, houseplantsCtrl.show)
 
 
 

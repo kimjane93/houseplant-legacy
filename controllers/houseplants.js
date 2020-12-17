@@ -7,11 +7,11 @@ module.exports = {
     new: newHouseplant,
     create,
     goToStore,
-    show,
 }
 
 function index(req, res){
     Houseplant.find({})
+    .populate("Ownedby")
     .then((houseplants)=>{
         res.render('houseplants/index', {title: 'Plants in Rotation', user: req.user, houseplants: houseplants})
     })
@@ -37,9 +37,9 @@ function goToStore(req, res){
     })
 }
 
-function show(req, res){
-    Houseplant.findById(req.params.id)
-    .then((houseplant)=>{
-        res.render('houseplants/show', {title: `Facts about ${houseplant.name}`, houseplant, user: req.user})
-    })
-}
+// function show(req, res){
+//     Houseplant.findById(req.params.id)
+//     .then((houseplant)=>{
+//         res.render('houseplants/show', {title: `Facts about ${houseplant.name}`, houseplant, user: req.user})
+//     })
+// }

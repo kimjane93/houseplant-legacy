@@ -11,8 +11,20 @@
                 <p class="card-text"><%= p.description %></p>
             </div>
             <div class="card-body">
+            <% if(p.Ownedby.length === 0){ %>
+                <p>No One Owns <%= p.name %> yet!</p>
+           <% } else{ %> 
+            <h5>Plant Pals Who Own A <%= p.name %> </h5>
+                <ul>
+                    <% p.Ownedby.forEach((o)=>{ %>
+                        <li>
+                            <a href="/users/<%= o._id %>"><%= o.name %></a>
+                        </li>
+                  <%  }) %> 
+                </ul>
+            <% } %>
+
                 <a href="/houseplants/plantshop" class="card-link">Check The Plant Shop!</a>
-                <a href="#" class="card-link">See Who Owns It and Has A Clipping!</a>
             </div>
         </div>
     <% }) %> 
