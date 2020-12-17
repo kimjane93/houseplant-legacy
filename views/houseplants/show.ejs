@@ -1,0 +1,22 @@
+<%- include('../partials/header') %> 
+
+<h1><%= title %> </h1>
+
+<div class="card" style="width: 18rem;">
+    <img src="<%= houseplant.imageUrl %>" class="card-img-top" alt="plant-image">
+    <div class="card-body">
+        <h5 class="card-title"><%= houseplant.name %></h5>
+        <h5 class="card-title">Description:</h5>
+        <p class="card-text"><%= houseplant.description %></p>
+        <h5 class="card-title"><% if(houseplant.userDetails.shareable){ %>
+            The Owner Of This Plant Welcomes You To Take A Clipping
+       <% } else{ %>
+            The Owner Is Protective, And Does Not Share Clippings
+      <% } %> </h5>
+    </div>
+    <div class="card-body">
+      
+    </div>
+</div>
+
+<%- include('../partials/footer') %> 

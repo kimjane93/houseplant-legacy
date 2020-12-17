@@ -7,6 +7,8 @@ module.exports = {
     addBio,
     myPlants,
     addPlantToCollection,
+    show,
+    theirPlants,
 }
 
 function myProfile(req, res){
@@ -36,17 +38,39 @@ function addBio(req, res){
 
 function addPlantToCollection(req, res){
     User.findById(req.user._id, function(error, user){
-        console.log(req.body.plantCollection)
+        Houseplant.findById(req.body.plantCollection)
+        .then((houseplant)=>{
+            houseplant.userDetails.push({
+                owner: req.user._id,
+                shareable: false,
+            })
+            houseplant.Ownedby.push(req.user._id)
+            houseplant.save()
+        })
         user.plantCollection.push(req.body.plantCollection)
-        user.save(function(){res.redirect('/users/profile')})
+        user.save(function(){res.redirect('/users/profile/personalcollection')})
     })
 }
-
 
 function myPlants(req, res){
     User.findById(req.user._id)
     .populate("plantCollection")
     .then((user)=>{
         res.render('users/personalcollection', {title: 'My Plant Collection', user})
+    })
+}
+
+function show(req, res){
+    User.findById(req.params.id)
+    .then((user)=>{
+        res.render('users/show', {title: `${user.name}'s Profile`, user })
+    })
+}
+
+function theirPlants(req, res){
+    User.findById(req.params.id)
+    .populate('plantCollection')
+    .then((user)=>{
+        res.render('users/usercollection', {title: `${user.name}'s Houseplant Collection`, user})
     })
 }

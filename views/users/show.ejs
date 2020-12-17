@@ -1,0 +1,24 @@
+<%- include('../partials/header') %> 
+
+<div class="card" style="width: 18rem;">
+    <img src="<%= user.avatar %>" class="card-img-top" alt="plant-image">
+    <div class="card-body">
+        <h5 class="card-title"><%= user.name %></h5>
+        <h5 class="card-title">Bio:</h5>
+        <% if(user.bio){ %>
+            <p class="card-text"><%= user.bio %></p>
+        <% } else{ %>
+           <p><%= user.name %> hasn't shared their story yet! </p>
+        <% } %> 
+    </div>
+    <div class="card-body">
+        <a href="/users/<%= user._id %>/usercollection" class="card-link">Their Houseplant Collection!</a>
+        <form action="/users" method="GET">
+            <button type="submit">Return To List Of Plant Pals</button>
+        </form>
+    </div>
+</div>
+
+
+
+<%- include('../partials/footer') %> 

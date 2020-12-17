@@ -2,10 +2,12 @@ const router = require('express').Router()
 const usersCtrl = require('../controllers/users')
 
 router.get('/profile', isLoggedIn, usersCtrl.myProfile)
-router.get('/index', isLoggedIn, usersCtrl.index)
+router.get('/', isLoggedIn, usersCtrl.index)
 router.put('/profile', isLoggedIn, usersCtrl.addBio)
 router.get('/profile/personalcollection', isLoggedIn, usersCtrl.myPlants)
-router.put('/profile/personalcollection', isLoggedIn, usersCtrl.addPlantToCollection)
+router.post('/profile/personalcollection', isLoggedIn, usersCtrl.addPlantToCollection)
+router.get('/:id', isLoggedIn, usersCtrl.show)
+router.get('/:id/usercollection', isLoggedIn, usersCtrl.theirPlants)
 
 
 

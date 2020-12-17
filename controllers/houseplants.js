@@ -7,6 +7,7 @@ module.exports = {
     new: newHouseplant,
     create,
     goToStore,
+    show,
 }
 
 function index(req, res){
@@ -25,9 +26,6 @@ function create(req, res){
     .then(()=>{
         res.redirect('/houseplants/new')
     })
-    .catch((error)=>{
-        console.log(error)
-    })
 }
 
 function goToStore(req, res){
@@ -36,5 +34,12 @@ function goToStore(req, res){
         let randomNum = Math.floor(Math.random() * houseplants.length)
         console.log(houseplants[randomNum])
         res.render('houseplants/plantshop', {title: 'Welcome To The Plant Shop', user: req.user, houseplant: houseplants[randomNum]})
+    })
+}
+
+function show(req, res){
+    Houseplant.findById(req.params.id)
+    .then((houseplant)=>{
+        res.render('houseplants/show', {title: `Facts about ${houseplant.name}`, houseplant, user: req.user})
     })
 }

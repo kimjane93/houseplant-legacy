@@ -1,9 +1,7 @@
 <%- include('../partials/header') %>
 
-<h1>this is the plantshop</h1>
-
-
-
+<h1><%= title %> </h1>
+<h4>Your Local Plant Shop Owner Has Just The Plant For You To Start, Or Add To Your Collection!</h4>
 <div class="card" style="width: 18rem;">
     <img src="<%= houseplant.imageUrl %>" class="card-img-top" alt="plant-image">
     <div class="card-body">
@@ -11,7 +9,7 @@
         <p class="card-text"><%= houseplant.description %></p>
     </div>
     <div class="card-body">
-        <form action="/users/profile/personalcollection?_method=PUT" method="POST">
+        <form action="/users/profile/personalcollection" method="POST">
             <input hidden name="plantCollection" value="<%=houseplant._id%>">
             <button type="submit">Bring Home This Plant!</button>
             </form>
