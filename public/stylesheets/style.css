@@ -1,11 +1,30 @@
+html {
+  box-sizing: border-box
+}
+
+/* The Universal Selector */
+*, /* All elements*/
+*::before, /* All ::before pseudo-elements */
+*::after { /* All ::after pseudo-elements */
+  /* height & width will now include border & padding by default
+     but can be over-ridden as needed */
+  box-sizing: inherit;
+}
+
 body {
-  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: gray;
+  font-family: sans-serif;
   margin: 0;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
 #nav-bar{
+  display: flex;
+  flex-direction: row;
   background-color: chartreuse;
   color: rgb(6, 72, 6);
   border-color: rgb(6, 72, 6);
 }
+
