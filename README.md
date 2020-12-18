@@ -1,15 +1,16 @@
-# MEN Stack with OAuth Template
-
-This is a MEN Stack template that includes OAuth.
-
-Use this to go build things! 🚀
-
-Add a .env file with the following:
-```
-DATABASE_URL=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-GOOGLE_CLIENT_ID=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-GOOGLE_SECRET=XXXXXXXXXXXXXXXXXXXXXXXX
-GOOGLE_CALLBACK=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-SESSION_SECRET=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-```
 # houseplant-legacy
+
+
+## List of Technologies Used:
+* Javascript
+* HTML
+* CSS
+* Bootsrap 
+* Google Fonts
+* MongoDB Atlas
+* Mongoose
+* Express
+* Node.js
+* ENV
+* Google Oauth
+* [Houseplant 411 Webpage](https://www.houseplant411.com/houseplant) - Used to outsource Plant Images and Descriptions 
