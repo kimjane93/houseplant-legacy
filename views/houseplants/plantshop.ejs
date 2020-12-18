@@ -16,14 +16,8 @@
             <% if(houseplant.Ownedby.length == 0){ %>
                 <h5>No One Owns This Plant Yet!</h5>
             <% } else { %>   
-            <h5>Plant Pals Who Own <%= houseplant.name %>:</h5>
-        <ul>
-            <% houseplant.Ownedby.forEach((o)=>{ %>
-            <li>
-                <%= o.name %> 
-            </li>
-      <%  }) %> </ul>
-         <% } %>   
+            <h5>No. Of Plant Pals Who Own <%= houseplant.name %>: <%= houseplant.Ownedby.length %> </h5> 
+            <% } %>
     </div>
 </div>
 
