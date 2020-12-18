@@ -21,7 +21,7 @@ function myProfile(req, res){
         res.render('users/profile', {title: 'My Profile', user: user})
     })
     .catch((err)=>{
-        res.redirect('/')
+        console.log(err)
     })
 }
 
@@ -30,6 +30,9 @@ function index(req, res){
     .then((users)=>{
         res.render('users/index', {title: 'Other Plant Pals!', users: users, user: req.user})
     })
+    .catch((err)=>{
+        console.log(err)
+    })
 }
 
 
@@ -37,6 +40,9 @@ function addBio(req, res){
     User.findByIdAndUpdate(req.user._id, req.body, {new: true})
     .then(()=>{
         res.redirect('/users/profile')
+    })
+    .catch((err)=>{
+        console.log(err)
     })
 }
 
@@ -66,12 +72,18 @@ function myPlants(req, res){
     .then((user)=>{
         res.render('users/personalcollection', {title: 'My Plant Collection', user})
     })
+    .catch((err)=>{
+        console.log(err)
+    })
 }
 
 function show(req, res){
     User.findById(req.params.id)
     .then((user)=>{
         res.render('users/show', {title: `${user.name}'s Profile`, user })
+    })
+    .catch((err)=>{
+        console.log(err)
     })
 }
 
@@ -81,6 +93,9 @@ function theirPlants(req, res){
     .then((user)=>{
         res.render('users/usercollection', {title: `${user.name}'s Houseplant Collection`, user})
     })
+    .catch((err)=>{
+        console.log(err)
+    })
 }
 
 
@@ -89,12 +104,18 @@ function plantdetail(req, res){
     .then((houseplant)=>{
         res.render('users/plantdetail', {title: `${houseplant.name}'s Details Page`, houseplant, user: req.user})
     })
+    .catch((err)=>{
+        console.log(err)
+    })
   }
 
 function edit(req, res){
     Houseplant.findById(req.params.id)
     .then((houseplant)=>{
         res.render('users/edit', {title: `Change Shareability Of Your ${houseplant.name}`, houseplant, user: req.user})
+    })
+    .catch((err)=>{
+        console.log(err)
     })
 }
 
@@ -108,6 +129,9 @@ function update(req, res){
         })
         houseplant.save()
         res.redirect(`/users/profile/personalcollection/${houseplant._id}`)
+    })
+    .catch((err)=>{
+        console.log(err)
     })
 }
 

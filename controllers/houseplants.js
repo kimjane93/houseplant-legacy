@@ -14,6 +14,9 @@ function index(req, res){
     .then((houseplants)=>{
         res.render('houseplants/index', {title: 'Plants in Rotation', user: req.user, houseplants: houseplants})
     })
+    .catch((err)=>{
+        console.log(err)
+    })
 }
 
 function newHouseplant(req, res){
@@ -25,6 +28,9 @@ function create(req, res){
     .then(()=>{
         res.redirect('/houseplants')
     })
+    .catch((err)=>{
+        console.log(err)
+    })
 }
 
 function goToStore(req, res){
@@ -34,6 +40,9 @@ function goToStore(req, res){
         let randomNum = Math.floor(Math.random() * houseplants.length)
         console.log(houseplants[randomNum])
         res.render('houseplants/plantshop', {title: 'Welcome To The Plant Shop', user: req.user, houseplant: houseplants[randomNum]})
+    })
+    .catch((err)=>{
+        console.log(err)
     })
 }
 

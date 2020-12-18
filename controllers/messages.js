@@ -24,6 +24,9 @@ function create(req, res){
     .then(()=>{
         res.redirect('/messages')
     })
+    .catch((err)=>{
+        console.log(err)
+    })
 }
 
 function show(req, res){
