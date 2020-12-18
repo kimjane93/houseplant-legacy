@@ -6,11 +6,24 @@
     <div>
         <input type="text" name="title" placeholder="Share your thoughts about plants, ask after plants people are willing to share, and more!">
     </div>
-    <button type="submit">Confer With </button>
+    <button type="submit">Confer With Plant Pals</button>
 </form>
 
 
-
+<% messages.forEach(m => { %>
+    <div class="card">
+      <div class="card-header">
+        <%= m.postedBy %> <img id="avatarPhoto" width="30" src="<%= m.avatar %>">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><%= m.title %></h5>
+        <h6><%= m.createdAt.toLocaleString()%></h6>
+        <form action="/messages/<%= m._id %>" method="GET">
+            <button type="submit">See Post</button>
+        </form>
+      </div>
+    </div>
+  <% }) %>
 
 
 

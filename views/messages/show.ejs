@@ -1,0 +1,18 @@
+<%- include('../partials/header') %>
+
+<h4><%= message.title %> </h4>
+<h5><img src="<%= message.avatar %> " alt="profile image"> </br> Posted by <%= message.postedBy %> at <%= message.createdAt.toLocaleString() %> 
+</h5>
+
+<% message.replies.forEach(r => { %>
+    <h6><%= r.message %> - <%= r.postedBy %> <img id="avatarPhoto" width="25" src="<%= r.avatar %>" alt="profile image"></h6>
+<% }) %>
+
+<form action="/messages/<%= message._id %>" method="POST">
+    <div class="form-group">
+      <input type="text" name="message" placeholder="Add To The Convo~">
+    </div>
+    <button type="submit" class="btn btn-primary">Reply</button>
+  </form>
+
+<%- include('../partials/footer') %>
