@@ -14,12 +14,12 @@
     Where Should We Go?
   </button>
   <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="/houseplants">Plants In Rotation</a></li>
-    <li><a class="dropdown-item" href="#">Consult Plant Pals!</a></li>
     <li><% if (user) { %>
+    <li><a class="dropdown-item" href="/houseplants">Plants In Rotation</a></li>
     <li><a class="dropdown-item" href='/users/profile'>My Profile</a></li>
     <li><a class="dropdown-item" href='/users'>Other Plant Pals</a></li>
     <li><a class="dropdown-item" href='/houseplants/plantshop'>Plant Shop</a></li>
+    <li><a class="dropdown-item" href="/messages">Consult Plant Pals!</a></li>
     <li><hr class="dropdown-divider"></li>
         <a href="/auth/logout">Log Out</a>
       <% } else { %>

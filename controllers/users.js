@@ -1,6 +1,5 @@
 const User = require('../models/user')
 const Houseplant = require('../models/houseplant')
-const houseplant = require('../models/houseplant')
 
 module.exports = {
     myProfile,

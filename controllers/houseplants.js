@@ -1,5 +1,4 @@
 const Houseplant = require('../models/houseplant')
-const User = require('../models/user')
 
 
 module.exports = {
@@ -24,7 +23,7 @@ function newHouseplant(req, res){
 function create(req, res){
     Houseplant.create(req.body)
     .then(()=>{
-        res.redirect('/houseplants/new')
+        res.redirect('/houseplants')
     })
 }
 
