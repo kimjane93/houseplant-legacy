@@ -1,15 +1,14 @@
 <%- include('../partials/header') %> 
-
+<header>
 <h1><%= title %> </h1>
-
 <form action="/messages" method="POST">
     <div>
         <input type="text" name="title" placeholder="Share your thoughts about plants, ask after plants people are willing to share, and more!">
     </div>
     <button type="submit">Confer With Plant Pals</button>
 </form>
-
-
+</header>
+<main>
 <% messages.forEach(m => { %>
     <div class="card">
       <div class="card-header">

@@ -1,5 +1,5 @@
 <%- include('../partials/header') %> 
-
+<header>
 <h1><%= title %> </h1>
 <form action="/users/profile" method="GET">
     <button type="submit">Return To Your Profile</button>
@@ -9,6 +9,8 @@
     <form action="/houseplants/plantshop" method="GET">
         <button type="submit">Head To The Plant Shop!</button>
     </form>
+</header>
+<main>
 <% } else { %>
 <% user.plantCollection.forEach((p)=>{ %>
     <div class="card text-center shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">

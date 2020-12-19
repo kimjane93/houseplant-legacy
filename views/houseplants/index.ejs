@@ -1,7 +1,9 @@
 <%- include('../partials/header') %> 
-    <h1>Hey <%= user.name %>!</h1>
-    <h3>Take A Look At The Plants You Can Currently Collect Through The Plant Shop, Or By Taking Clippings From Generous Freinds!</h3>
-    
+    <header>
+        <h1>Hey <%= user.name %>!</h1>
+        <h3>Take A Look At The Plants You Can Currently Collect Through The Plant Shop, Or By Taking Clippings From Generous Friends!</h3>
+</header>
+<main> 
     <% houseplants.forEach((p)=>{ %>
 
         <div class="card text-center shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
@@ -13,18 +15,22 @@
             <div class="card-body">
             <% if(p.Ownedby.length === 0){ %>
                 <p>No One Owns <%= p.name %> yet!</p>
+                <a href="/houseplants/plantshop" class="card-link">Check The Plant Shop!</a>
            <% } else{ %> 
-            <h5>Plant Pals Who Own A <%= p.name %> </h5>
-                <ul>
+            <p>Seek Out Plant Pals That Own A <%= p.name %>! </p>
+            <div class="btn-group">
+                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Owners
+                </button>
+                <ul class="dropdown-menu">
                     <% p.Ownedby.forEach((o)=>{ %>
                         <li>
                             <a href="/users/<%= o._id %>"><%= o.name %></a>
                         </li>
-                  <%  }) %> 
+                    <%  }) %> 
                 </ul>
+            </div>
             <% } %>
-
-                <a href="/houseplants/plantshop" class="card-link">Check The Plant Shop!</a>
             </div>
         </div>
     <% }) %> 

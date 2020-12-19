@@ -4,12 +4,12 @@ body {
   margin: 0;
   font-family: 'Architects Daughter', cursive;
   background-color: #DCEC86;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  /* justify-content: center; */
+  padding-top: 200px; 
 }
 
 main{
-  padding-top: 200px; 
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -17,6 +17,11 @@ main{
 
 #nav-label{
   display: grid
+}
+
+header{
+  display: grid;
+  text-align: center;
 }
 
 
