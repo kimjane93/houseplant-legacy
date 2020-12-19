@@ -24,8 +24,9 @@
 * Javascript
 * HTML
 * CSS
+* [Colormind](https://colormind.io)
 * Bootsrap 
-* Google Fonts
+* Google Fonts: [Architects Daughter](https://fonts.google.com/specimen/Architects+Daughter?category=Display,Handwriting,Monospace&sidebar.open=true&selection.family=Xanh+Mono&query=archi)
 * MongoDB Atlas
 * Mongoose
 * Express
@@ -36,3 +37,5 @@
 * Passport
 * Heroku
 * [Houseplant 411 Webpage](https://www.houseplant411.com/houseplant) - Used to outsource Plant Images and Descriptions 
+* [Source of Default User Avatar Image](https://www.thespruce.com/chocolate-soldier-plant-profile-5024790)
+* [Source of Navbar Gif](https://giphy.com/gifs/love-valentines-day-csak-IbsQ8L4PTQ53SH7FnL)

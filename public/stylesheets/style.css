@@ -2,8 +2,21 @@ body {
   background-color: gray;
   font-family: sans-serif;
   margin: 0;
-  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
-  padding-top: 100px; 
+  font-family: 'Architects Daughter', cursive;
+  background-color: #DCEC86;
+  display: flex;
+  justify-content: center;
+}
+
+main{
+  padding-top: 200px; 
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#nav-label{
+  display: grid
 }
 
 
