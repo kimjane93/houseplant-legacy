@@ -12,12 +12,12 @@
         <form action="/users/profile/personalcollection" method="POST">
             <input hidden name="plantCollection" value="<%=houseplant._id%>">
             <button type="submit">Bring Home This Plant!</button>
-            </form>
-            <% if(houseplant.Ownedby.length == 0){ %>
-                <h5>No One Owns This Plant Yet!</h5>
-            <% } else { %>   
+        </form>
+        <% if(houseplant.Ownedby.length == 0){ %>
+            <h5>No One Owns This Plant Yet!</h5>
+        <% } else { %>   
             <h5>No. Of Plant Pals Who Own <%= houseplant.name %>: <%= houseplant.Ownedby.length %> </h5> 
-            <% } %>
+        <% } %> 
     </div>
 </div>
 
