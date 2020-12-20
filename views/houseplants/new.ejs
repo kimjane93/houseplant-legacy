@@ -1,19 +1,16 @@
 <%- include('../partials/header') %> 
 <header></header>
 <main>
-    <table>
-        <thead>
-        <iframe src="https://giphy.com/embed/hvMTGSBJOQiLS" width="480" height="320" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-        </thead>
-            <tr>
-                <form action="/houseplants" method="POST">
-                    <input type="text" placeholder="Scientific Name" name="name">
-                    <input type="text" placeholder="Description" name="description">
-                    <input type="text" placeholder="Image Url" name="imageUrl">
-                    <button class="header-button" type="submit">Add Houseplant</button>
-                </form>
-            </tr>
-    </table>
-
+<div class="card text-center shadow p-3 mb-5 bg-white rounded" style="width: 30rem;">
+    <iframe src="https://giphy.com/embed/G3fPad8N68GfS" frameBorder="0" class="giphy-embed"  class="card-img-top"></iframe>
+    <div class="card-body">
+        <form action="/houseplants" method="POST">
+            <input type="text" placeholder="Scientific Name" name="name">
+            <input type="text" placeholder="Description" name="description">
+            <input type="text" placeholder="Image Url" name="imageUrl">
+            <button class="header-button" type="submit">Add Houseplant</button>
+        </form>
+    </div>
+</div>
 
 <%- include('../partials/footer') %> 
