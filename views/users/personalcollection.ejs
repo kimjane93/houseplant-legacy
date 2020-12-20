@@ -2,7 +2,7 @@
 <header>
 <h1><%= title %> </h1>
 <form action="/users/profile" method="GET">
-    <button type="submit">Return To Your Profile</button>
+    <button class="header-button" type="submit">Return To Your Profile</button>
 </form>
 <% if(user.plantCollection == 0){ %>
     <div>
@@ -10,7 +10,7 @@
     </div>
     <h5>You Have A Serious Lack Of Green In Your Life!</h5>
     <form action="/houseplants/plantshop" method="GET">
-        <button id="header-button" type="submit">Head To The Plant Shop!</button>
+        <button type="submit">Head To The Plant Shop!</button>
     </form>
 </header>
 <% } else { %>
@@ -31,7 +31,7 @@
                 <input type="text" hidden name="owner" value="<%= d.owner %>">
             <% } %> 
       <%  }) %> 
-        <button id="header-button" type="submit">Return <%= p.name %> To The Shop</button>
+        <button type="submit">Return <%= p.name %> To The Shop</button>
     </form>
     </div>
 <% }) %> 

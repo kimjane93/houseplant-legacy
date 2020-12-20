@@ -3,7 +3,7 @@
 <h1><%= title %> </h1>
 <form action="/messages" method="POST">
     <div>
-        <input id="post-input" type="text" name="title" placeholder="Share your thoughts"> <button id="header-button" type="submit">Post Away</button>
+        <input id="post-input" type="text" name="title" placeholder="Share your thoughts"> <button class="header-button" type="submit">Post Away</button>
     </div>
 </form>
 </header>
@@ -16,8 +16,9 @@
       <div class="card-body">
         <h5 class="card-title"><%= m.title %></h5>
         <h6><%= m.createdAt.toLocaleString()%></h6>
+        <h6>No. of Responses: <%= m.replies.length %> </h6>
         <form action="/messages/<%= m._id %>" method="GET">
-            <button type="submit">See Post</button>
+            <button type="submit">See Post and Reply!</button>
         </form>
       </div>
     </div>

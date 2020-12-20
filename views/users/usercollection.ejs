@@ -6,11 +6,11 @@
     </div>
     <h5><%= user.name %> Has A Serious Lack Of Green In Their Life!</h5>
     <form action="/users/<%= user._id %>" method="GET">
-        <button id="header-button" type="submit">Return To <%= user.name %>'s Profile</button>
+        <button class="header-button" type="submit">Return To <%= user.name %>'s Profile</button>
     </form>
 <% } else { %>
     <form action="/users/<%= user._id %>" method="GET">
-        <button id="header-button" type="submit">Return To <%= user.name %>'s Profile</button>
+        <button class="header-button" type="submit">Return To <%= user.name %>'s Profile</button>
     </form>
 </header>
 <main>

@@ -24,15 +24,10 @@ header{
   text-align: center;
 }
 
-button{
-  background-color: #DCEC86;
-  border-radius: 50%;
-  height: 50px;
-}
-
 button:hover{
-  box-shadow: 0 5px;
+  box-shadow: 0 2.5px;
   border: none;
+  transform: scale(0.98)
 }
 
 input{
@@ -40,7 +35,8 @@ input{
   height: 50px;
   text-align: center;
   background-color: #e3ecb2;
-  border: 0px;
+  border: 0 5px;
+  outline: none;
 }
 
 .welcome{
@@ -56,14 +52,25 @@ iframe{
   border-radius: 10%;
 }
 
-#header-button:hover{
+.header-button{
   background-color: white;
+  box-shadow: 0 5px;
+  border: none;
 }
 
 input:hover{
   background-color: white;
 }
 
-#post-input{
-  background-color: white;
+.card{
+  text-align: center;
+}
+
+button{
+  box-shadow: 0 5px;
+  background-color: #DCEC86;
+  border-radius: 50%;
+  height: 50px;
+  outline: none;
+  margin-bottom: 6px;
 }

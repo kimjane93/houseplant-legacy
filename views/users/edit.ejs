@@ -8,10 +8,10 @@
         <% if(d.owner == user._id) { %>
             <% if(d.shareable) { %>
                <p>You Are Sharing This Plant With Friends<input type="checkbox" name="shareable" checked> </p>
-               <button id="header-button" type="submit">Disallow Sharing</button>
+               <button class="header-button" type="submit">Disallow Sharing</button>
           <% } else { %>
                 <p>You Are Not Sharing This Plant With Friends<input type="checkbox" name="shareable"></p>
-                <button id="header-button" type="submit">Allow Sharing</button>
+                <button class="header-button" type="submit">Allow Sharing</button>
          <% } %> 
       <%  } %> 
     <%  }) %> </p>
