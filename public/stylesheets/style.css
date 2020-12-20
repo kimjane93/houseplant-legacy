@@ -36,7 +36,14 @@ input{
   text-align: center;
   background-color: #e3ecb2;
   border: 0 5px;
-  outline: none;
+}
+
+input:focus{
+  outline: 2px dashed #a2ba1b ;
+}
+
+button:focus{
+  outline: 2px dashed #a2ba1b ;
 }
 
 .welcome{
@@ -71,6 +78,5 @@ button{
   background-color: #DCEC86;
   border-radius: 50%;
   height: 50px;
-  outline: none;
   margin-bottom: 6px;
 } 

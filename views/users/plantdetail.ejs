@@ -3,22 +3,29 @@
 <h1><%= title %> </h1>
 </header>
 <main>
-<p><%= houseplant.imageUrl %></p>
-<p><%= houseplant.description %></p>
-<p><% houseplant.userDetails.forEach((d)=>{ %>
-    <% if(d.owner == user._id) { %>
-        <% if(d.shareable) { %>
-            <h5>Plant Pals Can Take A Clipping</h5>
-      <% } else { %>
-            <h5>Plant Pals Cannot Take A Clipping</h5>
-     <% } %> 
-     <form action="/users/profile/personalcollection/<%= houseplant._id %>/edit" method="GET">
-        <button type="submit">Change Shareability</button>
-    </form>
-    <form action="/users/profile/personalcollection" method="GET">
-        <button type="submit">Return To Your Collection</button>
-    </form>
-  <%  } %> 
-<%  }) %> </p>
+<div class="card text-center shadow p-3 mb-5 bg-white rounded" style="width: 30rem;">
+    <img src="<%= houseplant.imageUrl %>" class="card-img-top" alt="plant-image">
+    <div class="card-body">
+        <h5 class="card-title"><%= houseplant.name %></h5>
+        <p class="card-text"><%= houseplant.description %></p>
+    </div>
+    <div class="card-body">
+        <% houseplant.userDetails.forEach((d)=>{ %>
+            <% if(d.owner == user._id) { %>
+                <% if(d.shareable) { %>
+                    <h5>Plant Pals Can Take A Clipping</h5>
+              <% } else { %>
+                    <h5>Plant Pals Cannot Take A Clipping</h5>
+             <% } %> 
+             <form action="/users/profile/personalcollection/<%= houseplant._id %>/edit" method="GET">
+                <button type="submit">Change Shareability</button>
+            </form>
+            <form action="/users/profile/personalcollection" method="GET">
+                <button type="submit">Return To Your Collection</button>
+            </form>
+          <%  } %> 
+        <%  }) %>
+    </div>
+</div>
 
 <%- include('../partials/footer') %>
