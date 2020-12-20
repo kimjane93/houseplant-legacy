@@ -91,7 +91,7 @@ function theirPlants(req, res){
     User.findById(req.params.id)
     .populate('plantCollection')
     .then((user)=>{
-        res.render('users/usercollection', {title: `${user.name}'s Houseplant Collection`, user})
+        res.render('users/usercollection', {title: `${user.name}'s Houseplant Collection`, user, currentUser: req.user})
     })
     .catch((err)=>{
         console.log(err)

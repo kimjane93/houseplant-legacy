@@ -23,7 +23,7 @@
         <% p.userDetails.forEach((d)=>{ %>
             <% if(d.owner == user._id) { %>
                 <% if(d.shareable) { %>
-                    <% if(p.Ownedby.includes(user._id)){ %>
+                    <% if(p.Ownedby.includes(currentUser._id)){ %>
                         <h5>You Already Own This Leafy Friend!</h5>
                     <% } else { %> 
                     <form action="/users/profile/personalcollection" method="POST">

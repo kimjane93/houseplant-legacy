@@ -35,7 +35,6 @@ function create(req, res){
 
 function goToStore(req, res){
     Houseplant.find({})
-    .populate('Ownedby')
     .then((houseplants)=>{
         let randomNum = Math.floor(Math.random() * houseplants.length)
         console.log(houseplants[randomNum])
