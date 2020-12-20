@@ -1,40 +1,40 @@
 <%- include('../partials/header') %> 
 <header>
-<h1><%= title %> </h1>
-<form action="/users/profile" method="GET">
-    <button class="header-button" type="submit">Return To Your Profile</button>
-</form>
-<% if(user.plantCollection == 0){ %>
-    <div>
-        <iframe src="https://giphy.com/embed/AYKv7lXcZSJig" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-    </div>
-    <h5>You Have A Serious Lack Of Green In Your Life!</h5>
-    <form action="/houseplants/plantshop" method="GET">
-        <button class="header-button" type="submit">Head To The Plant Shop!</button>
+    <h1><%= title %> </h1>
+    <form action="/users/profile" method="GET">
+        <button class="header-button" type="submit">Return To Your Profile</button>
     </form>
-</header>
-<% } else { %>
-<main>
-<% user.plantCollection.forEach((p)=>{ %>
-    <div class="card text-center shadow p-3 mb-5 bg-white rounded m-3" style="width: 18rem;">
-        <img src="<%= p.imageUrl %>" class="card-img-top" alt="plant-image">
-        <div class="card-body">
-            <h5 class="card-title"><%= p.name %></h5>
+    <% if(user.plantCollection == 0){ %>
+        <div>
+            <iframe src="https://giphy.com/embed/AYKv7lXcZSJig" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
         </div>
-      <form action="/users/profile/personalcollection/<%= p._id %>" method="GET">
-        <button type="submit">Plant Details</button>
-    </form>
-    <form action="/users/profile/personalcollection?_method=DELETE" method="POST">
-        <input type="text" hidden name="plantid" value="<%= p._id %>">
-        <% p.userDetails.forEach((d)=>{ %>
-            <% if(d.owner == user._id){ %>
-                <input type="text" hidden name="owner" value="<%= d.owner %>">
-            <% } %> 
-      <%  }) %> 
-        <button type="submit">Return <%= p.name %> To The Shop</button>
-    </form>
-    </div>
-<% }) %> 
+        <h5>You Have A Serious Lack Of Green In Your Life!</h5>
+        <form action="/houseplants/plantshop" method="GET">
+            <button class="header-button" type="submit">Head To The Plant Shop!</button>
+        </form>
+</header>
+    <% } else { %>
+<main>
+    <% user.plantCollection.forEach((p)=>{ %>
+        <div class="card text-center shadow p-3 mb-5 bg-white rounded m-3" style="width: 18rem;">
+            <img src="<%= p.imageUrl %>" class="card-img-top" alt="plant-image">
+            <div class="card-body">
+                <h5 class="card-title"><%= p.name %></h5>
+            </div>
+            <form action="/users/profile/personalcollection/<%= p._id %>" method="GET">
+                <button type="submit">Plant Details</button>
+            </form>
+            <form action="/users/profile/personalcollection?_method=DELETE" method="POST">
+                <input type="text" hidden name="plantid" value="<%= p._id %>">
+                    <% p.userDetails.forEach((d)=>{ %>
+                        <% if(d.owner == user._id){ %>
+                            <input type="text" hidden name="owner" value="<%= d.owner %>">
+                        <% } %> 
+                    <% }) %> 
+                <button type="submit">Return <%= p.name %> To The Shop</button>
+            </form>
+        </div>
+    <% }) %> 
 <% }%> 
 
 

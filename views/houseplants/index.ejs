@@ -1,11 +1,10 @@
 <%- include('../partials/header') %> 
-    <header>
-        <h1>Hey <%= user.name %>!</h1>
-        <h3>Take A Look At The Plants You Can Currently Collect Through The Plant Shop, Or By Taking Clippings From Generous Friends!</h3>
-    </header>
+<header>
+    <h1>Hey <%= user.name %>!</h1>
+    <h3>Take A Look At The Plants You Can Currently Collect Through The Plant Shop, Or By Taking Clippings From Generous Friends!</h3>
+</header>
 <main> 
     <% houseplants.forEach((p)=>{ %>
-
         <div class="card text-center shadow p-3 mb-5 bg-white rounded m-3" style="width: 18rem;">
             <img src="<%= p.imageUrl %>" class="card-img-top" alt="plant-image">
             <div class="card-body">
@@ -13,29 +12,25 @@
                 <p class="card-text"><%= p.description %></p>
             </div>
             <div class="card-body">
-            <% if(p.Ownedby.length === 0){ %>
-                <p>No One Owns <%= p.name %> yet!</p>
-                <form action="houseplants/plantshop" class="card-link" method="GET">
-                <button type="submit">Check The Plant Shop!</button>
-                </form>
-           <% } else{ %> 
-            <p>Seek Out Plant Pals That Own A <%= p.name %>! </p>
-            <div class="btn-group">
-                <button type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Owners
-                </button>
-                <ul class="dropdown-menu">
-                    <% p.Ownedby.forEach((o)=>{ %>
-                        <li>
-                            * <a href="/users/<%= o._id %>"><%= o.name %></a>
-                        </li>
-                    <%  }) %> 
-                </ul>
-            </div>
-            <% } %>
+                <% if(p.Ownedby.length === 0){ %>
+                    <p>No One Owns <%= p.name %> yet!</p>
+                    <form action="houseplants/plantshop" class="card-link" method="GET">
+                        <button type="submit">Check The Plant Shop!</button>
+                    </form>
+                <% } else{ %> 
+                    <p>Seek Out Plant Pals That Own A <%= p.name %>! </p>
+                    <div class="btn-group">
+                        <button type="button" data-bs-toggle="dropdown" aria-expanded="false">Owners</button>
+                        <ul class="dropdown-menu">
+                            <% p.Ownedby.forEach((o)=>{ %>
+                                <li>
+                                    * <a href="/users/<%= o._id %>"><%= o.name %></a>
+                                </li>
+                            <%  }) %> 
+                        </ul>
+                    </div>
+                <% } %>
             </div>
         </div>
     <% }) %> 
-        
-</ul>
 <%- include('../partials/footer') %> 

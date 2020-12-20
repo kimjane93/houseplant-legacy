@@ -1,14 +1,14 @@
 <%- include('../partials/header') %> 
 <header>
-<h1><%= title %> </h1>
-<form action="/messages" method="POST">
+  <h1><%= title %> </h1>
+  <form action="/messages" method="POST">
     <div>
         <input id="post-input" type="text" name="title" placeholder="Share your thoughts"> <button class="header-button" type="submit">Post Away</button>
     </div>
-</form>
+  </form>
 </header>
 <main>
-<% messages.forEach(m => { %>
+  <% messages.forEach(m => { %>
     <div class="card m-3">
       <div class="card-header">
         <%= m.postedBy %> <img id="avatarPhoto" width="30" src="<%= m.avatar %>">
@@ -23,7 +23,4 @@
       </div>
     </div>
   <% }) %>
-
-
-
 <%- include('../partials/footer') %> 

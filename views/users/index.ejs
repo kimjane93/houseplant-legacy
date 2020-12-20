@@ -1,23 +1,25 @@
 <%- include('../partials/header') %> 
 <header></header>
 <main>
-<% users.forEach((u)=>{ %>
-
-    <div class="card text-center shadow p-3 mb-5 bg-white rounded m-3" style="width: 18rem;">
-        <% if(!u.avatar) { %>
-            <img src="https://www.thespruce.com/thmb/GXFlHQ6qbSNNYS-lYluILZcYhsc=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/chocolate-soldier-plant-profile-5024790-14-ec741ee603514091b516fb4b54070c0d.jpg" class="card-img-top" alt="plant-image">
-        <% }%> 
-        <img src="<%= u.avatar %>" class="card-img-top" alt="plant-image">
-        <div class="card-body">
-            <h5 class="card-title"><%= u.name %></h5>
-        </div>
-        <div class="card-body">
-            <form action="/users/<%= u._id %>" class="card-link" method="GET">
-                <button type="submit">Peek Their Story & Plants</button>
-            </form>
-        </div>
-    </div>
+    <% users.forEach((u)=>{ %>
+        <% if(u.email === user.email){ %> 
+        <% } else { %>
+            <div class="card text-center shadow p-3 mb-5 bg-white rounded m-3" style="width: 18rem;">
+                <% if(!u.avatar) { %>
+                <img src="https://www.thespruce.com/thmb/GXFlHQ6qbSNNYS-lYluILZcYhsc=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/chocolate-soldier-plant-profile-5024790-14-ec741ee603514091b516fb4b54070c0d.jpg" class="card-img-top" alt="plant-image">
+            <% } else {%>
+                <img src="<%= u.avatar %>" class="card-img-top" alt="plant-image">
+            <% } %>
+            <div class="card-body">
+                <h5 class="card-title"><%= u.name %></h5>
+            </div>
+            <div class="card-body">
+                <form action="/users/<%= u._id %>" class="card-link" method="GET">
+                    <button type="submit">Peek Their Story & Plants</button>
+                </form>
+            </div>
+            </div>
+        <% } %>
 <% }) %> 
-
 
 <%- include('../partials/footer') %> 

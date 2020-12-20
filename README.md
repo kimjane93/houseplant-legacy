@@ -38,8 +38,12 @@
 * Heroku
 * [Houseplant 411 Webpage](https://www.houseplant411.com/houseplant) - Used to outsource Plant Images and Descriptions 
 * [Source of Default User Avatar Image](https://www.thespruce.com/chocolate-soldier-plant-profile-5024790)
+* 
 * [Source of Navbar Logo: By Janira Keana at The Noun Project](https://thenounproject.com/search/?q=plant&i=1702837)
 * [Charlie Brown Running Gif](https://giphy.com/gifs/peanuts-halloween-charlie-brown-great-pumpkin-DsnlYxaMm43vO)
 * [Plant SHop Pale](https://thenounproject.com/search/?q=plant&i=3651345)
 * [Lonely Dusty Gif](https://giphy.com/gifs/sad-peanuts-lonely-AYKv7lXcZSJig/embed)
 * [spngebob gif](https://giphy.com/gifs/spongebob-squarepants-ugly-thoughts-hvMTGSBJOQiLS)
+
+
+## Acknowledgements

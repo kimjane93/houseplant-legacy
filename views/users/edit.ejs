@@ -1,18 +1,16 @@
 <%- include('../partials/header') %> 
 <header>
-<h1><%= title %> </h1>
+    <h1><%= title %> </h1>
 </header>
 <main>
-
-
-<div class="card text-center shadow p-3 mb-5 bg-white rounded" style="width: 30rem;">
-    <img src="<%= houseplant.imageUrl %>" class="card-img-top" alt="plant-image">
-    <div class="card-body">
-        <h1 class="card-title"><%= houseplant.name %></h1>
-    </div>
+    <div class="card text-center shadow p-3 mb-5 bg-white rounded" style="width: 30rem;">
+        <img src="<%= houseplant.imageUrl %>" class="card-img-top" alt="plant-image">
+        <div class="card-body">
+            <h1 class="card-title"><%= houseplant.name %></h1>
+        </div>
     <div class="card-body">
         <form action="/users/profile/personalcollection/<%= houseplant._id %>?_method=PUT" method="POST">
-            <p><% houseplant.userDetails.forEach((d)=>{ %>
+            <% houseplant.userDetails.forEach((d)=>{ %>
                 <% if(d.owner == user._id) { %>
                     <% if(d.shareable) { %>
                        <h5>You Are Sharing This Plant With Friends</h5>
@@ -23,8 +21,8 @@
                         <input type="checkbox" hidden name="shareable" checked>
                         <button type="submit">Allow Sharing</button>
                  <% } %> 
-              <%  } %> 
-            <%  }) %> </p>
+                <%  } %> 
+            <%  }) %>
         </form>
     </div>
 </div>

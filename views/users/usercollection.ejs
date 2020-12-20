@@ -14,30 +14,30 @@
     </form>
 </header>
 <main>
-<% user.plantCollection.forEach((p)=>{ %>
-    <div class="card text-center shadow p-3 mb-5 bg-white rounded m-3" style="width: 18rem;">
-        <img src="<%= p.imageUrl %>" class="card-img-top" alt="plant-image">
-        <div class="card-body">
-            <h5 class="card-title"><%= p.name %></h5>
+    <% user.plantCollection.forEach((p)=>{ %>
+        <div class="card text-center shadow p-3 mb-5 bg-white rounded m-3" style="width: 18rem;">
+            <img src="<%= p.imageUrl %>" class="card-img-top" alt="plant-image">
+            <div class="card-body">
+                <h5 class="card-title"><%= p.name %></h5>
+            </div>
+            <% p.userDetails.forEach((d)=>{ %>
+                <% if(d.owner == user._id) { %>
+                    <% if(d.shareable) { %>
+                        <% if(p.Ownedby.includes(currentUser._id)){ %>
+                            <h5>You Already Own This Leafy Friend!</h5>
+                        <% } else { %> 
+                        <form action="/users/profile/personalcollection" method="POST">
+                            <input type="text" hidden name="plantCollection" value="<%= p._id %>">
+                            <button type="submit">Take A Clipping For Your Collection!</button> 
+                        </form>
+                        <% } %>
+                    <% } else { %>
+                        <h5>The Owner Does Not Allow Clippings Of Their <%= p.name %></h5>
+                    <% } %> 
+                <%  } %> 
+            <%  }) %> 
         </div>
-        <% p.userDetails.forEach((d)=>{ %>
-            <% if(d.owner == user._id) { %>
-                <% if(d.shareable) { %>
-                    <% if(p.Ownedby.includes(currentUser._id)){ %>
-                        <h5>You Already Own This Leafy Friend!</h5>
-                    <% } else { %> 
-                    <form action="/users/profile/personalcollection" method="POST">
-                        <input type="text" hidden name="plantCollection" value="<%= p._id %>">
-                        <button type="submit">Take A Clipping For Your Collection!</button> 
-                    </form>
-                    <% } %>
-              <% } else { %>
-                    <h5>The Owner Does Not Allow Clippings Of Their <%= p.name %></h5>
-             <% } %> 
-          <%  } %> 
-      <%  }) %> 
-    </div>
-<% }) %> 
+    <% }) %> 
 <% } %>
 
 

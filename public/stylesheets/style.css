@@ -24,28 +24,6 @@ header{
   text-align: center;
 }
 
-button:hover{
-  box-shadow: 0 2.5px;
-  border: none;
-  transform: scale(0.98)
-}
-
-input{
-  border-radius: 50%;
-  height: 50px;
-  text-align: center;
-  background-color: #e3ecb2;
-  border: 0 5px;
-}
-
-input:focus{
-  outline: 2px dashed #a2ba1b ;
-}
-
-button:focus{
-  outline: 2px dashed #a2ba1b ;
-}
-
 .welcome{
   padding: 25px 100px 25px 100px;
   text-align: center;
@@ -57,12 +35,6 @@ button:focus{
 
 iframe{
   border-radius: 10%;
-}
-
-.header-button{
-  background-color: white;
-  box-shadow: 0 5px;
-  border: none;
 }
 
 input:hover{
@@ -80,3 +52,31 @@ button{
   height: 50px;
   margin-bottom: 6px;
 } 
+
+button:hover{
+  box-shadow: 0 2.5px;
+  border: none;
+  transform: scale(0.98)
+}
+
+button:focus{
+  outline: 2px dashed #a2ba1b ;
+}
+
+.header-button{
+  background-color: white;
+  box-shadow: 0 5px;
+  border: none;
+}
+
+input{
+  border-radius: 50%;
+  height: 50px;
+  text-align: center;
+  background-color: #e3ecb2;
+  border: 0 5px;
+}
+
+input:focus{
+  outline: 2px dashed #a2ba1b ;
+}

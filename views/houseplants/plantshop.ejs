@@ -1,33 +1,33 @@
 <%- include('../partials/header') %>
 <header>
-<h1><%= title %> </h1>
-<div>
-    <img src="/images/noun_Plant_3651345.png" alt="pixel image of smiling face next to plant">
-</div>
-<h4>Your Local Plant Shop Owner Has Just The Plant For You To Start, Or Add To Your Collection!</h4>
+    <h1><%= title %> </h1>
+    <div>
+        <img src="/images/noun_Plant_3651345.png" alt="pixel image of smiling face next to plant">
+    </div>
+    <h4>Your Local Plant Shop Owner Has Just The Plant For You To Start, Or Add To Your Collection!</h4>
 </header>
 <main>
-<div class="card text-center shadow p-3 mb-5 bg-white rounded" style="width: 30rem;">
-    <img src="<%= houseplant.imageUrl %>" class="card-img-top" alt="plant-image">
-    <div class="card-body">
-        <h5 class="card-title"><%= houseplant.name %></h5>
-        <p class="card-text"><%= houseplant.description %></p>
-    </div>
-    <div class="card-body">
-        <% if(houseplant.Ownedby && houseplant.Ownedby.includes(user._id)){ %>
-            <h5>You Already Own This Leafy Friend!</h5>
+    <div class="card text-center shadow p-3 mb-5 bg-white rounded" style="width: 30rem;">
+        <img src="<%= houseplant.imageUrl %>" class="card-img-top" alt="plant-image">
+        <div class="card-body">
+            <h1 class="card-title"><%= houseplant.name %></h1>
+            <h5 class="card-text"><%= houseplant.description %></h5>
+        </div>
+        <div class="card-body">
+            <% if(houseplant.Ownedby && houseplant.Ownedby.includes(user._id)){ %>
+                <h5>You Already Own This Leafy Friend!</h5>
             <% } else { %>
-        <form action="/users/profile/personalcollection" method="POST">
-            <input hidden name="plantCollection" value="<%=houseplant._id%>">
-            <button type="submit">Bring Home This Plant!</button>
-        </form>
-        <% } %>
+                <form action="/users/profile/personalcollection" method="POST">
+                    <input hidden name="plantCollection" value="<%=houseplant._id%>">
+                    <button type="submit">Bring Home This Plant!</button>
+                </form>
+            <% } %>
         <% if(houseplant.Ownedby.length == 0){ %>
             <h5>No One Owns This Plant Yet!</h5>
         <% } else { %>   
             <h5>No. Of Plant Pals Who Own <%= houseplant.name %>: <%= houseplant.Ownedby.length %> </h5> 
         <% } %> 
+        </div>
     </div>
-</div>
 
 <%- include('../partials/footer') %>
