@@ -4,12 +4,12 @@
 <div class="card text-center shadow p-3 mb-5 bg-white rounded" style="width: 30rem;">
     <img src="<%= user.avatar %>" class="card-img-top" alt="plant-image">
     <div class="card-body">
-        <h5 class="card-title"><%= user.name %></h5>
-        <h5 class="card-title">Bio:</h5>
+        <h1 class="card-title"><%= user.name %></h1>
+        <h3 class="card-title">Bio:</h3>
         <% if(user.bio){ %>
-            <p class="card-text"><%= user.bio %></p>
+            <h5 class="card-text"><%= user.bio %></h5>
         <% } else{ %>
-           <p><%= user.name %> hasn't shared their story yet! </p>
+           <h5><%= user.name %> hasn't shared their story yet! </h5>
         <% } %> 
     </div>
     <div class="card-body">

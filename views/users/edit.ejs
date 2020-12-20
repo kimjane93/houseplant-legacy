@@ -8,18 +8,18 @@
 <div class="card text-center shadow p-3 mb-5 bg-white rounded" style="width: 30rem;">
     <img src="<%= houseplant.imageUrl %>" class="card-img-top" alt="plant-image">
     <div class="card-body">
-        <h5 class="card-title"><%= houseplant.name %></h5>
+        <h1 class="card-title"><%= houseplant.name %></h1>
     </div>
     <div class="card-body">
         <form action="/users/profile/personalcollection/<%= houseplant._id %>?_method=PUT" method="POST">
             <p><% houseplant.userDetails.forEach((d)=>{ %>
                 <% if(d.owner == user._id) { %>
                     <% if(d.shareable) { %>
-                       <p>You Are Sharing This Plant With Friends</p>
+                       <h5>You Are Sharing This Plant With Friends</h5>
                        <input type="checkbox" hidden name="shareable"> 
                        <button type="submit">Disallow Sharing</button>
                   <% } else { %>
-                        <p>You Are Not Sharing This Plant With Friends</p>
+                        <h5>You Are Not Sharing This Plant With Friends</h5>
                         <input type="checkbox" hidden name="shareable" checked>
                         <button type="submit">Allow Sharing</button>
                  <% } %> 
