@@ -1,20 +1,24 @@
 <%- include('../partials/header') %> 
 <header>
 <% if(user.plantCollection == 0){ %>
-    <iframe src="https://giphy.com/embed/AYKv7lXcZSJig" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+    <div>
+        <iframe src="https://giphy.com/embed/AYKv7lXcZSJig" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+    </div>
     <h5><%= user.name %> Has A Serious Lack Of Green In Their Life!</h5>
     <form action="/users/<%= user._id %>" method="GET">
-        <button type="submit">Return To <%= user.name %>'s Profile</button>
-     </form>
+        <button id="header-button" type="submit">Return To <%= user.name %>'s Profile</button>
+    </form>
+<% } else { %>
+    <form action="/users/<%= user._id %>" method="GET">
+        <button id="header-button" type="submit">Return To <%= user.name %>'s Profile</button>
+    </form>
 </header>
 <main>
-<% } else { %>
 <% user.plantCollection.forEach((p)=>{ %>
-    <div class="card text-center shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
+    <div class="card text-center shadow p-3 mb-5 bg-white rounded m-3" style="width: 18rem;">
         <img src="<%= p.imageUrl %>" class="card-img-top" alt="plant-image">
         <div class="card-body">
             <h5 class="card-title"><%= p.name %></h5>
-            <p class="card-text"> <%= p.description %></p>
         </div>
         <% p.userDetails.forEach((d)=>{ %>
             <% if(d.owner == user._id) { %>
@@ -26,15 +30,9 @@
                         <input type="text" hidden name="plantCollection" value="<%= p._id %>">
                         <button type="submit">Take A Clipping For Your Collection!</button> 
                     </form>
-                    <form action="/users/<%= user._id %>" method="GET">
-                        <button type="submit">Return To <%= user.name %>'s Profile</button>
-                     </form>
                     <% } %>
               <% } else { %>
                     <h5>The Owner Does Not Allow Clippings Of Their <%= p.name %></h5>
-                    <form action="/users/<%= user._id %>" method="GET">
-                        <button type="submit">Return To <%= user.name %>'s Profile</button>
-                     </form>
              <% } %> 
           <%  } %> 
       <%  }) %> 

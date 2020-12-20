@@ -13,7 +13,7 @@
     <nav class="navbar fixed-top navbar-expand-xl navbar-light bg-light shadow p-3 mb-5 bg-white rounded">
       <div class="container-fluid">
         <div id="nav-label">
-        <iframe src="https://giphy.com/embed/IbsQ8L4PTQ53SH7FnL" width="125" height="125" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+         <img src="/images/noun_Plant_1702837.png" alt="pixelated image of a hand holding a pile of soil with a seedling">
         <a class="navbar-brand" href="/">Houseplant Legacy</a>
       </div>
         <button class="navbar-toggler" type="button" 
@@ -22,8 +22,8 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo01">
-          <% if (user) { %>
           <ul class="navbar-nav" id="nav-list">
+            <% if (user) { %>
             <li class="nav-item">
               <a class="nav-link" href="/">Home</a>
             </li>
@@ -49,9 +49,9 @@
               <a class="nav-link" href="/auth/logout">Log Out</a>
             </li>
             <% } else { %>
-              <li id="nav-end" class="nav-item">
-                <a class="nav-link" href="/auth/google">Login with Google</a>
-              </li>
+            <li id="nav-end" class="nav-item">
+              <a class="nav-link" href="/auth/google">Login with Google</a>
+            </li>
               <% } %>
           </ul>
         </div>

@@ -1,5 +1,34 @@
 <%- include('partials/header') %>
-
-<h1>hello, <%= user ? user.name : "friend" %></h1>
-
+<header>
+<% if(user){ %>
+    <h1>Hello, <%= user.name %></h1>
+    <h4>Welcome Back To Houseplant Legacy!</h4>
+<% } else {%> 
+<h1>Hello, Friend!</h1>
+<h4>Welcome To Houseplant Legacy!</h4>
+<% } %> 
+</header>
+<main>
+    <% if(user){ %>
+    <div class="welcome">
+        <p>
+            Good to see you again! You know where everything is, so run along and frolick with your Plant Pals.
+        </p>
+        <iframe src="https://giphy.com/embed/DsnlYxaMm43vO" width="480" height="320" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+    </div>
+  <%  } else { %>
+    <div class="welcome">
+        <p>
+            We can't wait for you to get settled in and start collecting your dream houseplants! This site is a great way to cultivate your plant-hoarding hobby in advance of or in lieu of the financial and emotional investments houseplants require! Learn a little basic info as you collect them along the way, and break into the practice of plant-sharing within your virtual community!  
+        </p>
+        <p>
+            So hop up to the nav bar and log yourself in, we use Google, so no extra password and username to remember! Head on over to the plant shop for a reccomendation to start your collection off with, then check out other Plant Pal's collections for plant clippings they might share with you!    
+        </p>
+        <p>
+            If you have any questions, or stories you want to share, head over to our message board where you can post, and reply to other Plant Pal queries!
+        </p>
+        <h3>Have Fun!</h3>
+    </div>
+ <% } %>
+    
 <%- include('partials/footer') %>

@@ -5,8 +5,8 @@ body {
   font-family: 'Architects Daughter', cursive;
   background-color: #DCEC86;
   display: grid;
-  /* justify-content: center; */
   padding-top: 200px; 
+  height: 100vh;
 }
 
 main{
@@ -24,4 +24,46 @@ header{
   text-align: center;
 }
 
+button{
+  background-color: #DCEC86;
+  border-radius: 50%;
+  height: 50px;
+}
 
+button:hover{
+  box-shadow: 0 5px;
+  border: none;
+}
+
+input{
+  border-radius: 50%;
+  height: 50px;
+  text-align: center;
+  background-color: #e3ecb2;
+  border: 0px;
+}
+
+.welcome{
+  padding: 25px 100px 25px 100px;
+  text-align: center;
+}
+
+.card-link{
+  padding-bottom: 10px;
+}
+
+iframe{
+  border-radius: 10%;
+}
+
+#header-button:hover{
+  background-color: white;
+}
+
+input:hover{
+  background-color: white;
+}
+
+#post-input{
+  background-color: white;
+}

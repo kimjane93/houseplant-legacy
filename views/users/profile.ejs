@@ -3,7 +3,7 @@
 
 </header>
 <main>
-    <div class="card text-center shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
+    <div class="card text-center shadow p-3 mb-5 bg-white rounded m-3" style="width: 18rem;">
         <img src="<%= user.avatar %>" class="card-img-top" alt="plant-image">
         <div class="card-body">
             <h5 class="card-title"><%= user.name %></h5>
@@ -22,7 +22,9 @@
             <% } %> 
         </div>
         <div class="card-body">
-            <a href="/users/profile/personalcollection" class="card-link">Your Houseplant Collection!</a>
+            <form action="/users/profile/personalcollection" class="card-link" method="POST">
+                <button type="submit">Your Houseplant Collection!</button>
+            </form>
         </div>
     </div>
 
