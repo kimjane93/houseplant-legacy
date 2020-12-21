@@ -52,6 +52,3 @@ function respond(req, res){
         })
     })
 }
-
-// req.body.postedBy = req.user.name
-// req.body.avatar = req.user.avatar
