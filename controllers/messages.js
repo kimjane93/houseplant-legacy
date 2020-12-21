@@ -9,6 +9,7 @@ module.exports = {
 
 function index(req, res){
     Message.find({})
+    .populate('postedBy')
     .then((messages)=>{
         res.render('messages/index', {user: req.user, title: 'Plant Pal Message Board', messages: messages.reverse()})
     })
@@ -18,8 +19,6 @@ function index(req, res){
 }
 
 function create(req, res){
-    req.body.postedBy = req.user.name
-    req.body.avatar = req.user.avatar
     Message.create(req.body)
     .then(()=>{
         res.redirect('/messages')
@@ -31,6 +30,7 @@ function create(req, res){
 
 function show(req, res){
     Message.findById(req.params.id)
+    .populate('postedBy')
     .then((message)=>{
         res.render('messages/show', {title: req.user, user: req.user, message: message})
     })
@@ -42,9 +42,7 @@ function show(req, res){
 function respond(req, res){
     Message.findById(req.params.id)
     .then((message)=>{
-        req.body.postedBy = req.user.name
-        req.body.avatar = req.user.avatar
-        message.replies.push(req.body)
+       message.replies.push(req.body)
         message.save()
         .then(()=>{
             res.redirect(`/messages/${message._id}`)
@@ -54,3 +52,6 @@ function respond(req, res){
         })
     })
 }
+
+// req.body.postedBy = req.user.name
+// req.body.avatar = req.user.avatar

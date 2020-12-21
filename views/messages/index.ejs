@@ -3,15 +3,18 @@
   <h1><%= title %> </h1>
   <form action="/messages" method="POST">
     <div>
-        <input id="post-input" type="text" name="title" placeholder="Share your thoughts"> <button class="header-button" type="submit">Post Away</button>
+        <input id="post-input" type="text" name="title" placeholder="Share your thoughts">
+        <input type="text" hidden name="postedBy" value="<%= user._id %>">
+        <button class="header-button" type="submit">Post Away</button>
     </div>
   </form>
 </header>
 <main>
   <% messages.forEach(m => { %>
+    <% console.log(m.postedBy) %> 
     <div class="card m-3">
       <div class="card-header">
-        <%= m.postedBy %> <img id="avatarPhoto" width="30" src="<%= m.avatar %>">
+        <a href="/users/<%= m.postedBy[0]._id %> "><%= m.postedBy[0].name %><img id="avatarPhoto" width="30" src="<%= m.postedBy[0].avatar %>"></a>
       </div>
       <div class="card-body">
         <h5 class="card-title"><%= m.title %></h5>
