@@ -8,16 +8,13 @@
 ## [Trello Board](https://trello.com/b/xJ6UkHSD/houseplant-legacy)
 ![](https://i.imgur.com/9goliEW.png)
 
-## [Wireframes via Whimsical](https://whimsical.com/EyZwK5a61Bu5Sggtb1MxUK)
+## Snapshots of Houseplant Legacy
 
+![](https://i.imgur.com/eqAVH2I.png)
+![](https://i.imgur.com/AZLcuUs.png)
+![](https://i.imgur.com/1FLL7BP.png)
+![](https://i.imgur.com/YU02uFe.png)
 
-![](https://i.imgur.com/Za1flos.png)
-![](https://i.imgur.com/3DbyQ8p.png)
-![](https://i.imgur.com/TSNBEAd.png)
-![](https://i.imgur.com/huFHakJ.png)
-
-## [Entity Relationship Diagram via Lucid](https://lucid.app/lucidchart/7757d7e5-1188-4151-a901-19f58b9c0998/edit?shared=true&page=0_0#)
-![](https://i.imgur.com/ra6ujMK.png)
 
 
 ## List of Technologies Used:
