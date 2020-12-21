@@ -21,8 +21,8 @@
         <h6><%= m.createdAt.toLocaleString()%></h6>
         <h6>No. of Responses: <%= m.replies.length %> </h6>
         <form action="/messages/<%= m._id %>" method="GET">
-            <button type="submit">See Post and Reply!</button>
-        </form>
+          <button type="submit">See Post and Reply!</button>
+      </form>
       </div>
     </div>
   <% }) %>
