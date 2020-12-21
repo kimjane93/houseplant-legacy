@@ -43,12 +43,11 @@
               <li class="nav-item">
                 <a class="nav-link" href="/messages">Consult Plant Pals!</a>
               </li>
-            <% if(currentUser.email === 'kjchadwell93@gmail.com'){ %>
+            <% if(user.email === 'kjchadwell93@gmail.com'){ %>
               <li class="nav-item">
                 <a class="nav-link" href="/houseplants/new">Add Plant To Database</a>
               </li>
             <% } %> 
-            <% if(user){ %>
               <li id="nav-end" class="nav-item">
                 <a class="nav-link" href="/auth/logout">Log Out</a>
               </li>

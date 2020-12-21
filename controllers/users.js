@@ -80,7 +80,7 @@ function myPlants(req, res){
 function show(req, res){
     User.findById(req.params.id)
     .then((user)=>{
-        res.render('users/show', {title: `${user.name}'s Profile`, user, currentUser: req.user })
+        res.render('users/show', {title: `${user.name}'s Profile`, user})
     })
     .catch((err)=>{
         console.log(err)
