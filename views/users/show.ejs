@@ -2,18 +2,18 @@
 <header></header>
 <main>
     <div class="card text-center shadow p-3 mb-5 bg-white rounded" style="width: 30rem;">
-        <img src="<%= user.avatar %>" class="card-img-top" alt="plant-image">
+        <img src="<%= userProfile.avatar %>" class="card-img-top" alt="plant-image">
         <div class="card-body">
-            <h1 class="card-title"><%= user.name %></h1>
+            <h1 class="card-title"><%= userProfile.name %></h1>
             <h3 class="card-title">Bio:</h3>
-            <% if(user.bio){ %>
+            <% if(userProfile.bio){ %>
                 <h5 class="card-text"><%= user.bio %></h5>
             <% } else{ %>
-                <h5><%= user.name %> hasn't shared their story yet! </h5>
+                <h5><%= userProfile.name %> hasn't shared their story yet! </h5>
             <% } %> 
         </div>
     <div class="card-body">
-        <form action="/users/<%= user._id %>/usercollection" class="card-link" cmethod="GET">
+        <form action="/users/<%= userProfile._id %>/usercollection" class="card-link" cmethod="GET">
             <button type="submit">Their Houseplant Collection!</button>
         </form>
         <form action="/users" method="GET">
