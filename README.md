@@ -15,6 +15,10 @@
 ![](https://i.imgur.com/1FLL7BP.png)
 ![](https://i.imgur.com/YU02uFe.png)
 
+## Icebox Goals
+
+* Build Plant API, refactor app to use
+* Add Live Chat, Socket.io
 
 
 ## List of Technologies Used:
