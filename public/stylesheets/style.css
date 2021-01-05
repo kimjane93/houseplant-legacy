@@ -80,3 +80,7 @@ input{
 input:focus{
   outline: 2px dashed #a2ba1b ;
 }
+
+img{
+  border-radius: 10%;
+}
