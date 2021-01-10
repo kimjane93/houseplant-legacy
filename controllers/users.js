@@ -35,7 +35,6 @@ function index(req, res){
     })
 }
 
-
 function addBio(req, res){
     User.findByIdAndUpdate(req.user._id, req.body, {new: true})
     .then(()=>{
