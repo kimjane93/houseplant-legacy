@@ -2,7 +2,11 @@
 <header></header>
 <main>
     <div class="card text-center shadow p-3 mb-5 bg-white rounded m-3" style="width: 30rem;">
-        <img src="<%= user.avatar %>" class="card-img-top" alt="plant-image">
+        <% if(!user.avatar) { %>
+            <img src="../../images/gifs/sadpeanut.gif" alt="Sad Peanut Gallery Member Standing Alone In Wispy Grasses" class="card-img-top" alt="plant-image">
+    <% } else {%>
+        <img src="<%= user.avatar %>" class="card-img-top" alt="user-profile-image">
+    <% } %>
         <div class="card-body">
             <h1 class="card-title"><%= user.name %></h1>
             <h3 class="card-title">Bio:</h3>
